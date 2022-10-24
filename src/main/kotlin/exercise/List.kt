@@ -31,3 +31,5 @@ sealed class List<out A> {
 
 data class Cons<out A>(val head: A, val tail: List<A>) : List<A>()
 object Nil : List<Nothing>()
+
+fun <A> empty(): List<A> = Nil
