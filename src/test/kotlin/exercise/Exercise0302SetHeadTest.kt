@@ -1,20 +1,18 @@
 package exercise
 
-import exercises.Cons
-import exercises.Nil
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class Exercise0302SetHeadTest {
     @Test
     fun `replace the first element`() {
-        val list = Cons("B", Nil)
-        assertThat(list.setHead("A")).isEqualTo(Cons("A", Nil))
+        val list = List.of("B", "C")
+        assertThat(list.setHead("A")).isEqualTo(List.of("A", "C"))
     }
 
-    private fun <A> exercises.List<A>.setHead(element: A): exercises.List<A> {
+    private fun <A> List<A>.setHead(element: A): List<A> {
         return when(this) {
-            is Cons -> Cons(element, this.tail)
+            is Cons -> Cons(element, tail)
             is Nil -> Nil
         }
     }
