@@ -36,18 +36,18 @@ class Exercise0202IsSortedTest {
     }
 
     private fun <A> isSorted(aa: List<A>, order: (A, A) -> Boolean): Boolean {
-        fun go(list: List<A>): Boolean {
-            if(list.size < 2) return true
-            if(order.invoke(list.head, list.tail.head)) return go(list.tail)
+        tailrec fun go(list: List<A>): Boolean {
+            if (list.size < 2) return true
+            if (order.invoke(list.head, list.tail.head)) return go(list.tail)
             return false
         }
         return go(aa)
     }
 
     private fun <A> isSorted2(aa: List<A>, order: (A, A) -> Boolean): Boolean {
-        fun go(previousItem: A, list: List<A>): Boolean {
-            if(list.isEmpty()) return true
-            if(order.invoke(previousItem, list.head)) return go(list.head, list.tail)
+        tailrec fun go(previousItem: A, list: List<A>): Boolean {
+            if (list.isEmpty()) return true
+            if (order.invoke(previousItem, list.head)) return go(list.head, list.tail)
             return false
         }
         return go(aa.first(), aa.tail)

@@ -18,7 +18,7 @@ class Exercise0201FibonacciTest {
 
     private fun fib(i: Int): Int {
         tailrec fun go(state: Int, prev1: Int, prev2: Int): Int {
-            if(state == 0) return prev1
+            if (state == 0) return prev1
             return go(state - 1, prev2, prev1 + prev2)
         }
 

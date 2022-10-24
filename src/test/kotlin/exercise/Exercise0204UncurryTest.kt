@@ -7,7 +7,7 @@ class Exercise0204UncurryTest {
 
     @Test
     fun `sum of parts`() {
-        val curry = uncurry { a: String -> { b: Int -> a.toLong() + b.toLong()} }
+        val curry = uncurry { a: String -> { b: Int -> a.toLong() + b.toLong() } }
         val result = curry.invoke("5", 3)
 
         assertThat(result).isEqualTo(8L)

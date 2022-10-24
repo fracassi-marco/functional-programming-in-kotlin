@@ -14,6 +14,6 @@ class Exercise0203CurryingTest {
     }
 
     private fun <A, B, C> curry(f: (A, B) -> C): (A) -> (B) -> (C) {
-        return {a -> {b -> f.invoke(a, b)} }
+        return { a -> { b -> f.invoke(a, b) } }
     }
 }
