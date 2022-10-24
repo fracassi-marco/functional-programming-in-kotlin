@@ -12,7 +12,7 @@ class Exercise0301TailTest {
         assertThat(list.tail()).isEqualTo(Cons("B", Nil))
     }
 
-    fun <A> exercises.List<A>.tail(): exercises.List<A> {
+    private fun <A> exercises.List<A>.tail(): exercises.List<A> {
         return when(this) {
             is Cons -> this.tail
             is Nil -> Nil
