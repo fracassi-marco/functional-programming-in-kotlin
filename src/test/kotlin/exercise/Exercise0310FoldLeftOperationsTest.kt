@@ -20,7 +20,7 @@ class Exercise0310FoldLeftOperationsTest {
     @Test
     fun `implement length with foldLeft`() {
         val list = List.of(3, 4, 5, 6)
-        assertThat(list.foldLeft(0) { a: Int, b -> b + 1 }).isEqualTo(4)
+        assertThat(list.foldLeft(0) { _: Int, b -> b + 1 }).isEqualTo(4)
     }
 }
 

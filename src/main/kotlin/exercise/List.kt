@@ -27,6 +27,23 @@ sealed class List<out A> {
             }
         }
     }
+
+    fun <A> flatMap(f: (A) -> List<A>): List<A> {
+        return when (this) {
+            is Nil -> Nil
+            is Cons -> f((this as Cons<A>).head).appendAll(tail.flatMap(f))
+        }
+    }
+
+    private fun <A> appendAll(l: List<A>): List<A> {
+        return when(this) {
+            is Nil -> l
+            is Cons -> when(tail) {
+                is Nil -> Cons((this as Cons<A>).head, l)
+                is Cons -> Cons((this as Cons<A>).head, tail.appendAll(l))
+            }
+        }
+    }
 }
 
 data class Cons<out A>(val head: A, val tail: List<A>) : List<A>()
