@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class Exercise0317MapTest {
 
     @Test
-    fun `double to string`() {
+    fun `map to string`() {
         val list = List.of(1.0, 2.0, 3.0)
         assertThat(list.map { it.toString() }).isEqualTo(List.of("1.0", "2.0", "3.0"))
     }
