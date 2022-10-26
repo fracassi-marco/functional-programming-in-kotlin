@@ -8,7 +8,7 @@ class Exercise0326DepthTest {
     @Test
     fun `single node`() {
         val tree = Leaf(4)
-        assertThat(tree.depth()).isEqualTo(1)
+        assertThat(tree.depth()).isEqualTo(0)
     }
 
     @Test
@@ -20,12 +20,12 @@ class Exercise0326DepthTest {
                 Leaf(7)
             )
         )
-        assertThat(tree.depth()).isEqualTo(3)
+        assertThat(tree.depth()).isEqualTo(2)
     }
 
     private fun Tree<Int>.depth(): Int {
         return when (this) {
-            is Leaf -> 1
+            is Leaf -> 0
             is Branch -> 1 + maxOf(left.depth(), right.depth())
         }
     }
