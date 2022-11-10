@@ -2,7 +2,6 @@ package exercise
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import kotlin.math.pow
 
 class Exercise0403Map2Test {
 
@@ -30,9 +29,5 @@ class Exercise0403Map2Test {
 
         return Some(f((a as Some<A>).get, (b as Some<B>).get))
     }
-
-    private fun mean(xs: kotlin.collections.List<Double>) =
-        if(xs.isEmpty()) None
-        else Some(xs.sum() / xs.size)
 }
 
