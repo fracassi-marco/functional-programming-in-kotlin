@@ -30,7 +30,7 @@ class Exercise0406EitherTest {
     }
 
     @Test
-    fun map2() {
+    fun `map 2`() {
         val result = map2(
             Right(5.6),
             Right(2)
@@ -38,7 +38,7 @@ class Exercise0406EitherTest {
         assertThat(result).isEqualTo(Right("hello 7"))
     }
 
-    private fun <E, A, B, C> map2(ae: Either<E, A>, be: Either<E, B>, f: (A, B) -> C): Either<E, C> {
+    fun <E, A, B, C> map2(ae: Either<E, A>, be: Either<E, B>, f: (A, B) -> C): Either<E, C> {
         return ae.flatMap { a -> be.map { b -> f(a, b) } }
     }
 }
